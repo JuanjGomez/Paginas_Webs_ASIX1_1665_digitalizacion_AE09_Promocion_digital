@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Teva Llibreria</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-indigo-600">📚 La Teva Llibreria</h1>
+            <nav class="space-x-6 hidden md:block">
+                <a href="#" class="hover:text-indigo-600">Inici</a>
+                <a href="#" class="hover:text-indigo-600">Catàleg</a>
+                <a href="#" class="hover:text-indigo-600">Ofertes</a>
+                <a href="#" class="hover:text-indigo-600">Contacte</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white">
+        <div class="max-w-7xl mx-auto px-6 py-24 text-center">
+        <h2 class="text-4xl md:text-5xl font-bold mb-6">Descobreix el plaer de llegir</h2>
+        <p class="text-lg max-w-2xl mx-auto mb-8 opacity-90">
+            Una selecció cuidada de llibres per a tots els gustos, ara també en línia.
+        </p>
+        <a href="#" class="bg-white text-indigo-600 px-8 py-3 rounded-full font-semibold hover:bg-gray-100 transition">Explorar catàleg</a>
+        </div>
+    </section>
+
+    <!-- Featured Books -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <div class="text-center mb-14">
+            <h3 class="text-3xl font-bold mb-4">📖 Llibres destacats</h3>
+            <p class="text-gray-600">Algunes de les nostres recomanacions de la setmana</p>
+        </div>
+
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Book Card -->
+            <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
+                <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c" alt="Book" class="h-64 w-full object-cover">
+                <div class="p-6">
+                    <h4 class="text-xl font-semibold mb-2">El Nom del Vent</h4>
+                    <p class="text-sm text-gray-600 mb-4">Una història èpica plena de màgia, música i aventures inoblidables.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-indigo-600 font-bold text-lg">14,95 €</span>
+                        <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Comprar</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Book Card -->
+            <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f" alt="Book" class="h-64 w-full object-cover">
+                <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2">1984</h4>
+                <p class="text-sm text-gray-600 mb-4">Una distòpia clàssica que convida a reflexionar sobre la llibertat.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-indigo-600 font-bold text-lg">12,50 €</span>
+                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Comprar</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Book Card -->
+        <div class="bg-white rounded-2xl shadow hover:shadow-lg transition overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794" alt="Book" class="h-64 w-full object-cover">
+            <div class="p-6">
+                <h4 class="text-xl font-semibold mb-2">Sàpiens</h4>
+                <p class="text-sm text-gray-600 mb-4">Un viatge fascinant per la història de la humanitat.</p>
+                <div class="flex items-center justify-between">
+                    <span class="text-indigo-600 font-bold text-lg">16,90 €</span>
+                    <button class="bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700">Comprar</button>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="bg-white border-t">
+        <div class="max-w-4xl mx-auto px-6 py-16 text-center">
+            <h3 class="text-2xl font-bold mb-4">📩 Subscriu-te a les ofertes</h3>
+            <p class="text-gray-600 mb-6">Rep recomanacions i descomptes exclusius cada setmana</p>
+            <form class="flex flex-col sm:flex-row gap-4 justify-center">
+                <input type="email" placeholder="El teu correu electrònic" class="px-4 py-3 rounded-lg border w-full sm:w-80 focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                <button class="bg-indigo-600 text-white px-6 py-3 rounded-lg hover:bg-indigo-700">Subscriure'm</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300">
+        <div class="max-w-7xl mx-auto px-6 py-10 text-center">
+            <p class="mb-2">© 2025 La Teva Llibreria</p>
+            <p class="text-sm text-gray-500">Feta amb ❤️ per amants dels llibres</p>
+        </div>
+    </footer>
+
+</body>
+</html>
