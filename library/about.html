@@ -1,0 +1,69 @@
+<!-- FILE: about.html -->
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Nosaltres — La Teva Llibreria</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+  <header class="bg-white shadow-sm">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <span class="text-2xl font-extrabold text-indigo-600">📚</span>
+        <div>
+          <h1 class="text-lg font-bold">La Teva Llibreria</h1>
+          <p class="text-xs text-gray-500">Centre de Barcelona</p>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="index.html" class="hover:text-indigo-600">Inici</a>
+        <a href="categories.html" class="hover:text-indigo-600">Catàlegs</a>
+        <a href="about.html" class="text-indigo-600">Nosaltres</a>
+        <a href="contact.html" class="hover:text-indigo-600">Contacte</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="min-screen max-w-4xl mx-auto px-6 py-16">
+    <section class="grid gap-8 lg:grid-cols-2 items-center">
+      <div>
+        <h2 class="text-3xl font-extrabold mb-4">La Teva Llibreria — Una història de llibreters</h2>
+        <p class="text-gray-600 mb-4">Situada al cor de Barcelona, la nostra llibreria porta anys sent un punt de trobada per lectors de totes les edats. La nostra propietària, amb una selecció molt cuidada, aposta per la qualitat, l'atenció personalitzada i la proximitat.</p>
+        <p class="text-gray-600">Creiem en el valor dels llibres com a ponts entre persones. Si busques recomanacions, estarem encantats d'ajudar-te.</p>
+      </div>
+      <div>
+        <div class="bg-white rounded-2xl p-6 shadow">
+          <h3 class="font-bold mb-2">Obert:</h3>
+          <ul class="text-gray-600">
+            <li>Dl–Dv: 10:00 – 20:00</li>
+            <li>Dg: 11:00 – 14:00</li>
+          </ul>
+          <hr class="my-4">
+          <h3 class="font-bold mb-2">Servei</h3>
+          <p class="text-gray-600">Venda presencial i ara també venda online. Enviaments a tota Espanya.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="mt-12">
+      <h3 class="text-2xl font-bold mb-4">Què oferim</h3>
+      <div class="grid gap-6 sm:grid-cols-2">
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h4 class="font-semibold mb-2">Selecció curada</h4>
+          <p class="text-gray-600">Títols escollits per la seva qualitat literària i interès per la comunitat.</p>
+        </div>
+        <div class="bg-white p-6 rounded-2xl shadow">
+          <h4 class="font-semibold mb-2">Consell de lectura</h4>
+          <p class="text-gray-600">Recomanacions personalitzades segons els teus gustos.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="bg-gray-900 text-gray-200 mt-12 py-6 text-center">© 2025 La Teva Llibreria</footer>
+</body>
+</html>

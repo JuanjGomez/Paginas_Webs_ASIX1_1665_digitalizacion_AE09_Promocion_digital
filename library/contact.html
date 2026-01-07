@@ -1,0 +1,86 @@
+<!-- FILE: contact.html -->
+<!doctype html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contacte — La Teva Llibreria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+    <!-- Leaflet -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="" crossorigin="" />
+    <style>#map{height:320px;border-radius:12px;overflow:hidden}</style>
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="text-2xl font-extrabold text-indigo-600">📚</span>
+                <div>
+                <h1 class="text-lg font-bold">La Teva Llibreria</h1>
+                <p class="text-xs text-gray-500">Centre de Barcelona</p>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm">
+                <a href="index.html" class="hover:text-indigo-600">Inici</a>
+                <a href="categories.html" class="hover:text-indigo-600">Catàlegs</a>
+                <a href="about.html" class="hover:text-indigo-600">Nosaltres</a>
+                <a href="contact.html" class="text-indigo-600">Contacte</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-5xl mx-auto px-6 py-12">
+        <div class="grid gap-8 lg:grid-cols-2">
+            <div>
+                <h2 class="text-2xl font-bold mb-3">Contacta'ns</h2>
+                <p class="text-gray-600 mb-4">Tens un dubte? Vols una recomanació? Escriu-nos i et respondrem aviat.</p>
+
+                <form id="contactForm" class="bg-white rounded-2xl p-6 shadow space-y-4">
+                    <input type="text" id="name" placeholder="Nom" class="w-full px-3 py-2 rounded-lg border" required />
+                    <input type="email" id="email" placeholder="Correu electrònic" class="w-full px-3 py-2 rounded-lg border" required />
+                    <textarea id="message" rows="5" placeholder="Missatge" class="w-full px-3 py-2 rounded-lg border" required></textarea>
+                    <div class="flex items-center gap-3">
+                        <button type="submit" class="bg-indigo-600 text-white px-4 py-2 rounded-lg">Enviar</button>
+                        <div id="contactFeedback" class="text-sm text-green-600 hidden">Missatge enviat. Gràcies!</div>
+                    </div>
+                </form>
+
+                <div class="mt-6 text-sm text-gray-600">
+                    <p><strong>Adreça:</strong> C. Fictícia, Centre de Barcelona</p>
+                    <p><strong>Tel:</strong> +34 93 000 00 00</p>
+                    <p><strong>Horari:</strong> Dl–Dv 10:00–20:00, Dg 11:00–14:00</p>
+                </div>
+            </div>
+
+            <div>
+                <h3 class="text-lg font-semibold mb-3">On trobar-nos</h3>
+                <div id="map"></div>
+                <p class="text-sm text-gray-600 mt-3">Mapa interactiu (Leaflet) centrat al centre de Barcelona.</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-200 mt-12 py-6 text-center">© 2025 La Teva Llibreria</footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="assets/js/data.js"></script>
+    <script>
+        // Init map centered on Barcelona (approx coord)
+        const map = L.map('map').setView([41.3851, 2.1734], 14);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+        const marker = L.marker([41.3851, 2.1734]).addTo(map).bindPopup('<strong>La Teva Llibreria</strong><br>C. Fictícia, Centre de Barcelona').openPopup();
+
+        // Contact form simple handler
+        document.getElementById('contactForm').addEventListener('submit', (e)=>{
+        e.preventDefault();
+        document.getElementById('contactFeedback').classList.remove('hidden');
+        setTimeout(()=>document.getElementById('contactFeedback').classList.add('hidden'), 3500);
+        e.target.reset();
+        });
+    </script>
+</body>
+</html>

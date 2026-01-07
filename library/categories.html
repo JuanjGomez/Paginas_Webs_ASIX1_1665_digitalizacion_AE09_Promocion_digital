@@ -1,0 +1,137 @@
+<!-- FILE: categories.html -->
+<!doctype html>
+<html lang="ca">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Catàleg — La Teva Llibreria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body class="font-inter bg-gray-50 text-gray-800">
+    <!-- Header (same markup for simplicity) -->
+    <header class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3">
+                <span class="text-2xl font-extrabold text-indigo-600">📚</span>
+                <div>
+                <h1 class="text-lg font-bold">La Teva Llibreria</h1>
+                <p class="text-xs text-gray-500">Centre de Barcelona</p>
+                </div>
+            </a>
+            <nav class="hidden md:flex items-center gap-6 text-sm">
+                <a href="index.html" class="hover:text-indigo-600">Inici</a>
+                <a href="categories.html" class="text-indigo-600">Catàlegs</a>
+                <a href="about.html" class="hover:text-indigo-600">Nosaltres</a>
+                <a href="contact.html" class="hover:text-indigo-600">Contacte</a>
+                <button id="cartBtn2" class="ml-4 bg-indigo-600 text-white px-4 py-2 rounded-lg">Carret (0)</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-screen max-w-7xl mx-auto px-1 py-12">
+        <div class="flex flex-col lg:flex-row gap-8">
+            <!-- Filters -->
+            <aside class="w-full lg:w-72 bg-white rounded-2xl p-6 shadow">
+                <h4 class="font-bold mb-4">Filtrar</h4>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Cerca</label>
+                    <input id="searchInput" type="text" placeholder="Títol, autor..." class="w-full px-3 py-2 rounded-lg border focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Categoria</label>
+                    <div id="categoriesList" class="flex flex-wrap gap-2">
+                        <!-- buttons via JS -->
+                    </div>
+                </div>
+                <div class="mb-4">
+                    <label class="block text-sm font-medium mb-2">Preu</label>
+                    <div class="flex items-center gap-2">
+                        <input id="minPrice" type="number" placeholder="Min" class="w-1/2 px-3 py-2 rounded-lg border" />
+                        <input id="maxPrice" type="number" placeholder="Max" class="w-1/2 px-3 py-2 rounded-lg border" />
+                    </div>
+                </div>
+                <div class="flex gap-2">
+                    <button id="applyFilters" class="flex-1 bg-indigo-600 text-white py-2 rounded-lg">Aplicar</button>
+                    <button id="resetFilters" class="flex-1 border rounded-lg py-2">Restablir</button>
+                </div>
+            </aside>
+
+            <!-- Products -->
+            <section class="flex-1">
+                <div class="flex items-center justify-between mb-6">
+                    <h3 class="text-2xl font-bold">Catàleg</h3>
+                    <div class="text-sm text-gray-600">Mostrant <span id="resultCount">0</span> resultats</div>
+                </div>
+
+                <div id="productsGrid" class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                    <!-- Product cards via JS -->
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="bg-gray-900 text-gray-200 mt-12 py-6 text-center">© 2025 La Teva Llibreria</footer>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        // Initialize categories filter UI
+        const categories = Array.from(new Set(books.map(b => b.category)));
+        const categoriesList = document.getElementById('categoriesList');
+
+        categories.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = 'px-3 py-1 rounded-full border text-sm text-gray-700 hover:bg-indigo-50';
+            btn.textContent = cat;
+            btn.addEventListener('click', ()=>{
+                // mark selected
+                document.querySelectorAll('#categoriesList button').forEach(b=>b.classList.remove('bg-indigo-600','text-white'));
+                btn.classList.add('bg-indigo-600','text-white');
+                document.getElementById('searchInput').value = '';
+                filters.category = cat;
+                applyFilters();
+            });
+            categoriesList.appendChild(btn);
+        });
+
+        // Filters object
+        const filters = { q:'', category: null, min: null, max: null };
+
+        function applyFilters(){
+            filters.q = document.getElementById('searchInput').value.trim().toLowerCase();
+            const min = parseFloat(document.getElementById('minPrice').value);
+            const max = parseFloat(document.getElementById('maxPrice').value);
+            filters.min = isNaN(min)? null : min;
+            filters.max = isNaN(max)? null : max;
+
+            const results = books.filter(b => {
+                if(filters.q){
+                const hay = (b.title + ' ' + b.author + ' ' + b.description).toLowerCase();
+                if(!hay.includes(filters.q)) return false;
+                }
+                if(filters.category && b.category !== filters.category) return false;
+                if(filters.min !== null && b.price < filters.min) return false;
+                if(filters.max !== null && b.price > filters.max) return false;
+                return true;
+            });
+
+            const grid = document.getElementById('productsGrid');
+            grid.innerHTML = '';
+            results.forEach(r => grid.insertAdjacentHTML('beforeend', renderCard(r)));
+            document.getElementById('resultCount').textContent = results.length;
+            updateCartUI();
+        }
+
+        document.getElementById('applyFilters').addEventListener('click', applyFilters);
+        document.getElementById('resetFilters').addEventListener('click', ()=>{filters.category=null;document.getElementById('minPrice').value='';document.getElementById('maxPrice').value='';document.querySelectorAll('#categoriesList button').forEach(b=>b.classList.remove('bg-indigo-600','text-white'));applyFilters();});
+
+        // Live search
+        document.getElementById('searchInput').addEventListener('input', ()=>{filters.category=null;document.querySelectorAll('#categoriesList button').forEach(b=>b.classList.remove('bg-indigo-600','text-white'));applyFilters();});
+
+        // Initial render
+        applyFilters();
+    </script>
+</body>
+</html>

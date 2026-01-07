@@ -1,0 +1,11 @@
+// Datos de ejemplo de libros (usa esta lista para renderizar)
+const books = [
+    { id: 1, title: 'El Nom del Vent', author: 'A. Autor', category: 'Ficció', price: 14.95, cover: 'https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?q=80&w=800&auto=format&fit=crop', description: 'Una història èpica plena de màgia.' },
+    { id: 2, title: '1984', author: 'George Orwell', category: 'Clàssics', price: 12.5, cover: 'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=800&auto=format&fit=crop', description: 'Una distòpia clàssica.' },
+    { id: 3, title: 'Sàpiens', author: 'Yuval Noah Harari', category: 'Assaig', price: 16.9, cover: 'https://images.unsplash.com/photo-1512820790803-83ca734da794?q=80&w=800&auto=format&fit=crop', description: 'Un viatge per la història de la humanitat.' },
+    { id: 4, title: 'Petits Contes', author: 'M. Illa', category: 'Infantil', price: 9.9, cover: 'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=800&auto=format&fit=crop', description: 'Contes per als més petits.' },
+    { id: 5, title: 'La Ciutat de Vapor', author: 'C. Autor', category: 'Ficció', price: 11.5, cover: 'https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=800&auto=format&fit=crop', description: 'Relats entre la realitat i la fantasia.' },
+    { id: 6, title: 'Història Viva', author: 'D. Historiador', category: 'Història', price: 18.0, cover: 'https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop', description: 'Assaigs sobre moments clau de la història.' },
+    { id: 7, title: 'Astronautes', author: 'N. Científic', category: 'Ciència', price: 13.2, cover: 'https://images.unsplash.com/photo-1444703686981-a3abbc4d4fe3?q=80&w=800&auto=format&fit=crop', description: 'Ciència per llegir amb passió.' },
+    { id: 8, title: 'Ciència Ficció 2077', author: 'F. Futur', category: 'Ciència-Ficció', price: 15.0, cover: 'https://images.unsplash.com/photo-1516979187457-637abb4f9353?q=80&w=800&auto=format&fit=crop', description: 'Una mirada al futur proper.' }
+];
