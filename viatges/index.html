@@ -1,0 +1,57 @@
+<!-- ======================= index.html ======================= -->
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>MundoVivo Travel | Viaja por el mundo</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-[Poppins] bg-slate-50 text-slate-800">
+
+    <!-- HEADER -->
+    <header class="bg-white/80 backdrop-blur sticky top-0 z-50 border-b">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold text-emerald-600">🌍 MundoVivo</a>
+            <nav class="hidden md:flex gap-6 text-sm font-medium">
+                <a href="index.html" class="hover:text-emerald-600">Inicio</a>
+                <a href="tours.html" class="hover:text-emerald-600">Tours</a>
+                <a href="about.html" class="hover:text-emerald-600">Nosotros</a>
+                <a href="contact.html" class="hover:text-emerald-600">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section class="relative">
+        <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470" class="h-[70vh] w-full object-cover" />
+        <div class="absolute inset-0 bg-black/40 flex items-center">
+            <div class="max-w-7xl mx-auto px-6 text-white">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Viajes inolvidables por todo el mundo</h1>
+                <p class="max-w-xl mb-6">Explora destinos únicos con experiencias auténticas diseñadas desde Barcelona.</p>
+                <a href="tours.html" class="bg-emerald-500 hover:bg-emerald-600 px-6 py-3 rounded-full font-semibold">Ver experiencias</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- PACKAGES -->
+    <section class="max-w-7xl mx-auto px-6 py-20">
+        <h2 class="text-3xl font-bold mb-10">Paquetes destacados</h2>
+        <div id="packages" class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+
+    <!-- CTA -->
+    <section class="bg-emerald-600 text-white text-center py-16">
+        <h3 class="text-3xl font-bold mb-4">¿Listo para tu próxima aventura?</h3>
+        <p class="mb-6">Nuestro equipo te ayuda a diseñar el viaje perfecto</p>
+        <a href="contact.html" class="bg-white text-emerald-600 px-6 py-3 rounded-full font-semibold">Contáctanos</a>
+    </section>
+
+    <footer class="bg-slate-900 text-slate-300 text-center py-6">© 2025 MundoVivo Travel · Barcelona</footer>
+
+    <script src="assets/js/data.js"></script>
+    <script src="assets/js/app.js"></script>
+    <script>renderPackages()</script>
+</body>
+</html>

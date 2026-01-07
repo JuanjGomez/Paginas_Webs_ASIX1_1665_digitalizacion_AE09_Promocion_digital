@@ -1,0 +1,51 @@
+<!-- ======================= contact.html ======================= -->
+<!doctype html>
+<html lang="es">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Contacto | MundoVivo Travel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body class="font-[Poppins] bg-slate-50 min-h-screen flex flex-col">
+
+    <header class="bg-white border-b">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between">
+            <a href="index.html" class="text-xl font-bold text-emerald-600">🌍 MundoVivo</a>
+            <nav class="flex gap-6 text-sm">
+                <a href="index.html">Inicio</a>
+                <a href="tours.html">Tours</a>
+                <a href="about.html">Nosotros</a>
+                <a href="contact.html" class="text-emerald-600">Contacto</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="max-w-6xl mx-auto px-6 py-16 grid lg:grid-cols-2 gap-10 flex-grow">
+        <div>
+            <h1 class="text-3xl font-bold mb-4">Contáctanos</h1>
+            <form class="bg-white p-6 rounded-2xl shadow space-y-4">
+                <input type="text" placeholder="Nombre" class="w-full px-4 py-2 border rounded-lg" />
+                <input type="email" placeholder="Email" class="w-full px-4 py-2 border rounded-lg" />
+                <textarea placeholder="Mensaje" rows="5" class="w-full px-4 py-2 border rounded-lg"></textarea>
+                <button class="bg-emerald-600 text-white px-6 py-2 rounded-lg">Enviar</button>
+            </form>
+            <p class="mt-6 text-slate-600">📍 Centro de Barcelona · +34 93 000 00 00</p>
+        </div>
+        <div>
+            <div id="map" class="h-[350px] rounded-2xl"></div>
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-slate-300 text-center py-6">© 2025 MundoVivo Travel</footer>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script>
+        const map = L.map('map').setView([41.3851, 2.1734], 13)
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(map)
+        L.marker([41.3851, 2.1734]).addTo(map).bindPopup('MundoVivo Travel · Barcelona')
+    </script>
+</body>
+</html>
